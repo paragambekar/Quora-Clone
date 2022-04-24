@@ -60,6 +60,7 @@ app.use(passport.setAuthenticatedUser);
 // use express router 
 app.use('/', require('./routes/index'));
 
+
 app.listen(port, function(error){
     if(error){
         console.log(`Error in running the server: ${error}`);
