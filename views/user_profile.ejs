@@ -3,7 +3,7 @@
 
 <h2> <%= profile_user.name %> </h2>
 <h2> <%= profile_user.email %> </h2>
-<img src="<%= user.avatar %>" alt="<%= user.name %>" width="100px">
+
 <% if(user.id == profile_user.id){ %>
 
     <form action="/users/update/<%= profile_user.id %>" enctype="multipart/form-data" method="post">
