@@ -1,6 +1,6 @@
-<li>
+<li id="comment-<%= comment._id %>">
     <p>
-        <% if (locals.user && locals.user.id == comment.user.id){ %> 
+        <% if (locals.user && locals.user.id == comment.user){ %> 
             <small>
                 <a class="delete-comment-button" href="/comments/destroy/<%= comment.id %>">X</a>
             </small>
@@ -8,6 +8,18 @@
         <%= comment.content %>
         <small>
             <%= comment.user.name %>
+        </small>
+
+        <small>
+            <% if(locals.user) { %>
+                <a class="toggle-upvote-button" data-upvotes=
+                "<%= comment.upvotes.length %>" href="/upvotes/toggle/?id=<%= comment._id%>&type=Comment">
+                    <%= comment.upvotes.length %> Upvotes
+        
+                </a>
+            <% }else{%>
+                <%= comment.upvotes.length %> Upvotes
+            <% } %>
         </small>
     </p>
 </li>

@@ -14,7 +14,14 @@
 
     <div id="posts-list-container">
       <ul>
-        <% for(post of posts){ %> <%- include('_post'); -%> <% } %>
+        <% for(post of posts){ %> 
+        <%- include('_post'); -%> 
+        <% } %>
+        
+        <!-- <% for(t of tp){ %> 
+          <%= t.comments %> 
+        <% } %> -->
+
       </ul>
     </div>
   </section>
@@ -30,5 +37,16 @@
     <% } %>
   </section>
 </div>
+
 <script src="/js/home_post_comments.js" ></script>
 <script src="/js/home_posts.js"></script>
+<script src="js/toggle_upvotes.js"></script>
+
+<script>
+
+  $('.toggle-upvote-button').each(function(){
+    let self = this;
+    let toggleUpvote = new ToggleUpvote(self);
+  });
+
+</script>

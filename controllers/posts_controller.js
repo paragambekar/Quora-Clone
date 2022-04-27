@@ -1,5 +1,6 @@
 const Post = require('../models/post');
 const Comment = require('../models/comment');
+const Upvote = require('../models/upvote');
 
 module.exports.create = async function(request,response){
 
@@ -37,6 +38,11 @@ module.exports.destroy = async function(request,response){
         let post = await Post.findById(request.params.id); 
 
         if(post.user == request.user.id){
+
+            // delete associated likes  
+            await Upvote.deleteMany({ upvoteable : post , onModel : 'Post'});
+            await Upvote.deleteMany({ _id : { $in: post.comments} });
+
             post.remove();
 
             await Comment.deleteMany({post : request.params.id});

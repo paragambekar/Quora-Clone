@@ -12,7 +12,13 @@ const commentSchema = mongoose.Schema({
     post : {
         type : mongoose.Schema.Types.ObjectId,
         ref : 'Post',
-    }
+    },
+    upvotes : [
+        {
+            type : mongoose.Schema.Types.ObjectId,
+            ref : 'Upvote', 
+        }
+    ]
 },{
     timestamps : true
 });

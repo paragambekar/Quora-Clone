@@ -1,3 +1,4 @@
+
 class PostComments{
     // constructor is used to initialize the instance of the class whenever a new instance is created
     constructor(postId){
@@ -29,7 +30,8 @@ class PostComments{
                     let newComment = pSelf.newCommentDom(data.data.comment);
                     $(`#post-comments-${postId}`).prepend(newComment);
                     pSelf.deleteComment($(' .delete-comment-button', newComment));
-
+                
+                    new ToggleUpvote($(' .toggle-upvote-button',newComment));
                     new Noty({
                         theme: 'relax',
                         text: "Comment published!",
@@ -62,6 +64,14 @@ class PostComments{
                             <small>
                                 ${comment.user.name}
                             </small>
+
+                            <small>
+           
+                                <a class="toggle-upvote-button" data-upvotes = "0" href="/upvotes/toggle/?id=${comment._id}&type=Comment">
+                                    0 Upvotes
+                        
+                                </a>   
+                             </small>
                         </p>    
 
                 </li>`);

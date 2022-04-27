@@ -15,6 +15,12 @@ const postSchema = new mongoose.Schema({
         type : mongoose.Schema.Types.ObjectId,
         ref : 'Comment',
         }
+    ],
+    upvotes : [
+        {
+            type : mongoose.Schema.Types.ObjectId,
+            ref : 'Upvote', 
+        }
     ]
 },{
     timestamps : true

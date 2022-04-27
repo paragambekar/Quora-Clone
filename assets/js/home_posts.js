@@ -1,4 +1,5 @@
 {
+    console.log('Inside home_post.js');
     let createPost = function(){
 
         let newPostForm = $('#new-post-form');
@@ -15,6 +16,8 @@
                     $('#posts-list-container>ul').prepend(newPost);
                     deletePost($(' .delete-post-button', newPost));
                     new PostComments(data.data.post._id);
+                    new ToggleUpvote($(' .toggle-upvote-button',newPost));
+                    // new ToggleUpvote();
                     console.log(newPost);
                 },
                 error : function(error){
@@ -42,9 +45,18 @@
             <small>
             ${ post.user.name } 
             </small>
+
+            <small>
+           
+                <a class="toggle-upvote-button" data-upvotes = "0" href="/upvotes/toggle/?id=${post._id}&type=Post">
+                    0 Upvotes
+        
+                </a>   
+            </small>
+
         </p>
         <div class="post-comments">
-                <form action="/comments/create" method="POST">
+                <form id="post-${ post._id }-comments-form" action="/comments/create" method="post">
                     <input type="text" name="content" placeholder="Type Here to add comment..." required>
                     <input type="hidden" name="post" value="${post._id }" >
                     <input type="submit" value="Add Comment">
@@ -94,5 +106,5 @@
 
 
     createPost(); 
-    convertPostsToAjax();
+    convertPostsToAjax();  
 }
