@@ -1,8 +1,53 @@
 #home-container {
-  display: flex; }
-  #home-container #feed-posts {
-    width: 75%;
-    padding: 10px; }
-  #home-container #user-friends {
-    border-left: 2px solid lightgray;
-    padding: 10px; }
+  display: flex;
+  width: 70%;
+  align-items: center;
+  margin: auto; }
+  #home-container #feeds {
+    width: 100%; }
+    #home-container #feeds #feed-posts {
+      width: 85%;
+      padding: 10px; }
+      #home-container #feeds #feed-posts #post-form {
+        width: 95%;
+        margin-left: 50px;
+        display: flex;
+        flex-direction: row;
+        flex: 1 1 auto;
+        width: 90%; }
+        #home-container #feeds #feed-posts #post-form form {
+          width: 100%; }
+          #home-container #feeds #feed-posts #post-form form #input-text {
+            background-color: #cfcfcf;
+            width: 100%;
+            display: flex;
+            padding: 10px;
+            border-radius: 2px;
+            justify-content: space-between; }
+            #home-container #feeds #feed-posts #post-form form #input-text input {
+              height: 45px; }
+          #home-container #feeds #feed-posts #post-form form textarea {
+            width: 95%;
+            margin: 8px; }
+          #home-container #feeds #feed-posts #post-form form input {
+            margin: 8px;
+            width: 55px;
+            background-color: #111827;
+            border: 1px solid transparent;
+            border-radius: .75rem;
+            color: #FFFFFF;
+            flex: 0 0 auto;
+            font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+            font-size: 1.125rem;
+            font-weight: 400;
+            line-height: 0.5rem;
+            text-align: center;
+            text-decoration: none #6B7280 solid; }
+  #home-container #users {
+    position: fixed;
+    top: 55px;
+    right: 55px; }
+    #home-container #users #user-friends {
+      margin-top: 15px;
+      border-left: 2px solid lightgray;
+      padding: 10px; }

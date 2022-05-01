@@ -1,22 +1,37 @@
-Page Header
+<div id="header">
 
-<div class="auth-links">
-    <ul>
-        <% if (locals.user){ %>
-        <li>
-            <a href="/users/profile"><%= user.name %></a>
-        </li>
-        <li>
-            <a href="/users/sign-out">Sign Out</a>
-        </li>
-        <% }else{ %>
-        <li>
-            <a href="/users/sign-in">Sign In</a>
-        </li>
-        <li>
-            <a href="/users/sign-up">Sign Up</a>
-        </li>
+    <div id="container">
 
-        <% } %>
-    </ul>
+        <div class="logo">
+            <img src="/images/logo.png">
+        </div>
+
+        <div class="auth-links">
+            <% if (locals.user){ %>
+                
+                <div class="links">
+                    <a href="/users/profile"><%= user.name %></a>
+                </div>
+                <div class="links">
+                    <a href="/users/sign-out">Sign Out</a>
+                </div>
+    
+            <% }else{ %>
+    
+                <div class="links">
+                    <a href="/users/sign-in">Sign In</a>
+                </div>
+                <div class="links">
+                    <a href="/users/sign-up">Sign Up</a>
+                </div>
+    
+            <% } %>    
+            
+        </div>
+
+    </div>
+
+    
+
 </div>
+

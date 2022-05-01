@@ -1,49 +1,67 @@
-<li id="post-<%= post._id %>">
-    <p>
-     <% if (locals.user && locals.user.id == post.user.id){ %> 
+<link rel="stylesheet" href="/css/post.css">
+
+
+    <li id="post-<%= post._id %>">
+        <div class="singlePost">
+        <p>
+            <div class="head-div">
+                    <div>
+                        <p>
+                            <strong><%= post.user.name %></strong>
+                        </p>
+                    </div>
+                    <div>   
+                        <% if (locals.user && locals.user.id == post.user.id){ %> 
+                            
+                                <a class="delete-post-button top-right" href="/posts/destroy/<%= post.id %>">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            
+                        <% } %>
+                    </div>
+            </div>
+               
+         <%= post.content %>
+         <br>
+         
+    
          <small>
-             <a class="delete-post-button" href="/posts/destroy/<%= post.id %>">X</a>
-         </small>
-      <% } %>   
-     <%= post.content %>
-     <br>
-     <small>
-         <%= post.user.name %>
-     </small>
-
-     <small>
-        <% if(locals.user){ %>
-            <a class="toggle-upvote-button" data-upvotes="<%= post.upvotes.length %>" href="/upvotes/toggle/?id=<%= post._id%>&type=Post">
+            <% if(locals.user){ %>
+                <a class="toggle-upvote-button" data-upvotes="<%= post.upvotes.length %>" href="/upvotes/toggle/?id=<%= post._id%>&type=Post">
+                    <%= post.upvotes.length %> Upvotes
+    
+                </a>
+            <% }else{ %>
                 <%= post.upvotes.length %> Upvotes
-
-            </a>
-        <% }else{ %>
-            <%= post.upvotes.length %> Upvotes
-        <% } %>   
-     </small>
-
-    </p> 
- 
- <div id="post-comments">
-     <% if(locals.user){ %>
-        
-         <form id="post-<%= post._id %>-comments-form" action="/comments/create" method="post">
-             <input type="text" name="content" placeholder="Add Comment" required>
-             <input type="hidden" name="post" value="<%= post._id %>">
-             <input type="submit" value="Add Comment">
-         </form>
-     <% } %> 
+            <% } %>   
+         </small>
+    
+        </p> 
      
- </div>  
- 
- <div class="post-comments-list">
-     <ul id="post-comments-<%= post._id %>">
-         <% for(comment of post.comments){ %>
-             
-            <%- include('_comment'); -%>
-             
+     <div id="post-comments">
+         <% if(locals.user){ %>
+            
+             <form id="post-<%= post._id %>-comments-form" action="/comments/create" method="post">
+                 <input type="text" name="content" placeholder="Add Comment" required>
+                 <input type="hidden" name="post" value="<%= post._id %>">
+                 <input type="submit" value="Add Comment">
+             </form>
          <% } %> 
-     </ul>
- </div>
-
- </li>
+         
+     </div>  
+     
+     <div class="post-comments-list">
+         <ul id="post-comments-<%= post._id %>">
+             <% for(comment of post.comments){ %>
+                 
+                <%- include('_comment'); -%>
+                 
+             <% } %> 
+         </ul>
+     </div>
+    
+   
+    
+</div>
+</li>
+<script src="https://kit.fontawesome.com/9863b744e9.js" crossorigin="anonymous"></script>

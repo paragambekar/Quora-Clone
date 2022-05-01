@@ -1,0 +1,23 @@
+#header {
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  background-color: aqua; }
+  #header #container {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    background-color: bisque; }
+    #header #container .logo img {
+      height: 51px;
+      width: 150px; }
+    #header #container .auth-links {
+      display: flex;
+      width: 25%;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      font-size: 25px; }
+      #header #container .auth-links .links a {
+        text-decoration: none;
+        font-style: normal; }

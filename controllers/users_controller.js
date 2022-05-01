@@ -125,3 +125,5 @@ module.exports.destroySession = function(request,response){
     request.flash('success','Logged Out Successfully');
     return response.redirect('/');
 }
+
+

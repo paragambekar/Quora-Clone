@@ -1,0 +1,29 @@
+li{
+    list-style: none;
+}
+
+.singlePost{
+    position: relative;
+    border: 1px solid black;
+    background-color: rgb(215, 215, 215);
+    padding: 5px;
+    margin : 15px;
+    border-radius: 4px;
+
+    .top-right{
+        position: absolute;
+        top: 22px;
+        right: 16px;
+        font-size: 18px;
+    }
+}
+
+#post-comments{
+    input[type="text"]{
+        width : 60%;
+        margin-left: 20px;
+    }
+
+    
+}
+

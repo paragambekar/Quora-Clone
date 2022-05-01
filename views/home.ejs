@@ -1,41 +1,48 @@
 <link rel="stylesheet" href="/css/home.css" />
-
-<h1>Quora | Home Page</h1>
+<link rel="stylesheet" href="/css/chatbox.css">
 
 <div id="home-container">
-  <section id="feed-posts">
-    <h4>Posts</h4>
-    <% if(locals.user){ %>
-    <form action="/posts/create" id="new-post-form" method="post">
-      <textarea name="content" cols="30" rows="3" placeholder="Type Here..."required></textarea>
-      <input type="submit" value="Post" />
-    </form>
-    <% } %>
-
-    <div id="posts-list-container">
-      <ul>
-        <% for(post of posts){ %> 
-        <%- include('_post'); -%> 
+  <div id="feeds">
+    <section id="feed-posts">
+      <h4>Posts</h4>
+      <div id="post-form" >
+        <% if(locals.user){ %>
+        <form action="/posts/create" id="new-post-form" method="post">
+          <div id="input-text">
+            <textarea name="content" cols="30" rows="3" placeholder="Type Here..."required></textarea>
+            <input type="submit" value="Post" />
+          </div>
+          
+        </form>
         <% } %>
-        
-        <!-- <% for(t of tp){ %> 
-          <%= t.comments %> 
-        <% } %> -->
-
-      </ul>
     </div>
-  </section>
+  
+      <div id="posts-list-container">
+        <ul>
+          <% for(post of posts){ %> 
+          <%- include('_post'); -%> 
+          <% } %>
+        </ul>
+      </div>
+    </section>
+  </div>
+  
+  <div id="users">
+    <section id="user-friends">
 
-  <section id="user-friends">
-    <h4>Friends</h4>
-    <% for(u of all_users){ %>
+        <h4>Users</h4>
+      <% for(u of all_users){ %>
+  
+      <p>
+        <a href="/users/profile/<%= u.id %>"><%= u.name %></a>
+      </p>
+  
+      <% } %>
+    </section>
+  </div>
+  
 
-    <p>
-      <a href="/users/profile/<%= u.id %>"><%= u.name %></a>
-    </p>
-
-    <% } %>
-  </section>
+  <!-- <%- include('_chatbox'); -%>  -->
 </div>
 
 <script src="/js/home_post_comments.js" ></script>
@@ -50,3 +57,14 @@
   });
 
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.0/socket.io.js"></script>
+<script src="/js/chat_engine.js"></script>
+
+<% if(locals.user){ %>
+
+  <script>
+    new ChatEngine('user-chat-box','<%= locals.user.email %>')
+  </script>
+
+<% } %>
+

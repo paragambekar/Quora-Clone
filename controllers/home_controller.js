@@ -41,8 +41,7 @@ module.exports.home = async function(request,response){
     return response.render('home',{
         title : 'Quora',
         posts : posts,
-        all_users : users,
-        tp : tp,
+        all_users : users, 
     });
        
     }catch(error){

@@ -1,13 +1,85 @@
+
 #home-container{
     display:  flex;
-
-    #feed-posts{
-        width: 75%;
-        padding: 10px; 
+    width : 70%;
+    // border: 2px solid black;
+   align-items: center;
+   margin: auto;
+    #feeds{
+        width : 100%;
+        #feed-posts{
+            width: 85%;
+            padding: 10px; 
+    
+            #post-form{
+                width : 95%;
+                // border: 2px solid black;
+                margin-left: 50px;
+                display: flex;
+                flex-direction: row;
+                flex : 1 1 auto;
+    
+                width : 90%;
+                
+                form{
+                    width: 100%;
+                    #input-text{
+                        background-color: #cfcfcf;
+                        width : 100%;
+                        display: flex;
+                        padding: 10px;
+                        border-radius: 2px;
+                        justify-content: space-between;
+                        input{
+                            height : 45px;
+                        }
+                    }
+    
+                    textarea{
+                        width : 95%;
+                        margin : 8px;
+                    }
+    
+    
+                    input{
+                        margin : 8px;
+                        width: 55px;
+                        background-color: #111827;
+                        border: 1px solid transparent;
+                        border-radius: .75rem;
+                        // box-sizing: border-box;
+                        color: #FFFFFF;
+                        flex: 0 0 auto;
+                        font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+                        font-size: 1.125rem;
+                        font-weight: 400;
+                        line-height: 0.5rem;
+                        // padding: .75rem 1rem;
+                        text-align: center;
+                        text-decoration: none #6B7280 solid;
+                        // text-decoration-thickness: auto;
+                        // width: auto;
+                    }
+                }
+            }
+        }
     }
+    
 
-    #user-friends{
-        border-left: 2px solid lightgray;
-        padding: 10px;
+
+
+    #users{
+
+        position: fixed;
+        top: 55px;
+        right: 55px;
+
+        #user-friends{
+            margin-top: 15px;
+            border-left: 2px solid lightgray;
+            padding: 10px;
+        }
+
     }
+    
 } 

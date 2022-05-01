@@ -34,23 +34,31 @@
     // method to create new post in DOM 
     let newPostDom = function(post){
         return $(`<li id="post-${post._id}">
+        <div class="singlePost">
         <p>
-           
+            <div class="head-div">
+                <div>
+                <p>
+                ${ post.user.name } 
+                </p>
+                </div>
+            
+                <div>
             <small>
-                <a class="delete-post-button" href="/posts/destroy/${post._id}">X</a>
+                <a class="delete-post-button top-right" href="/posts/destroy/${post._id}"><i class="fas fa-trash-alt"></i></a>
+                
             </small>
+                </div>
            
             ${ post.content }
             <br>
-            <small>
-            ${ post.user.name } 
-            </small>
+            
 
             <small>
            
                 <a class="toggle-upvote-button" data-upvotes = "0" href="/upvotes/toggle/?id=${post._id}&type=Post">
                     0 Upvotes
-        
+
                 </a>   
             </small>
 
@@ -68,7 +76,7 @@
                 </ul>
             </div>
         </div>
-        
+        </div>
     </li>`)
 
     }
@@ -108,3 +116,4 @@
     createPost(); 
     convertPostsToAjax();  
 }
+
