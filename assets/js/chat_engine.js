@@ -41,6 +41,8 @@ class ChatEngine{
                     chatroom : 'quora',
                 });
             }
+
+            $(self).trigger("reset");
         });
 
         self.socket.on('receive_message', function(data){

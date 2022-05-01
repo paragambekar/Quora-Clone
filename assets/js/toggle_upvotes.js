@@ -28,7 +28,7 @@ class ToggleUpvote {
                 }
 
                 $(self).attr('data-upvotes', upvoteCount);
-                $(self).html(`${upvoteCount} Upvotes`);
+                $(self).html(`${upvoteCount} <i class="fas fa-arrow-up"></i>`);
             })
             .fail(function(errorData){
                 console.log('error in completing the request',errorData);

@@ -17,8 +17,17 @@
                     deletePost($(' .delete-post-button', newPost));
                     new PostComments(data.data.post._id);
                     new ToggleUpvote($(' .toggle-upvote-button',newPost));
-                    // new ToggleUpvote();
-                    console.log(newPost);
+                    new Noty({
+                        theme: 'relax',
+                        text: "Post published!",
+                        type: 'success',
+                        layout: 'topRight',
+                        timeout: 1500
+
+                    }).show();
+
+                    // clear the form after submit
+                    newPostForm.trigger("reset");
                 },
                 error : function(error){
                     console.log(error.responseText);
@@ -39,7 +48,9 @@
             <div class="head-div">
                 <div>
                 <p>
+                <strong>
                 ${ post.user.name } 
+                </strong>
                 </p>
                 </div>
             
@@ -54,13 +65,13 @@
             <br>
             
 
-            <small>
+            <p>
            
-                <a class="toggle-upvote-button" data-upvotes = "0" href="/upvotes/toggle/?id=${post._id}&type=Post">
-                    0 Upvotes
+             <a class="toggle-upvote-button" data-upvotes = "0" href="/upvotes/toggle/?id=${post._id}&type=Post">
+                    0 <i class="fas fa-arrow-up"></i>
 
                 </a>   
-            </small>
+            </p>
 
         </p>
         <div class="post-comments">
@@ -92,6 +103,14 @@
                 url: $(deleteLink).prop('href'),
                 success: function(data){
                     $(`#post-${data.data.post_id}`).remove();
+                    new Noty({
+                        theme: 'relax',
+                        text: "Post Deleted",
+                        type: 'success',
+                        layout: 'topRight',
+                        timeout: 1500
+
+                    }).show();
                 },error: function(error){
                     console.log(error.responseText);
                 }

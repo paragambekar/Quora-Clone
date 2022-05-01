@@ -28,7 +28,7 @@
          <small>
             <% if(locals.user){ %>
                 <a class="toggle-upvote-button" data-upvotes="<%= post.upvotes.length %>" href="/upvotes/toggle/?id=<%= post._id%>&type=Post">
-                    <%= post.upvotes.length %> Upvotes
+                    <%= post.upvotes.length %> <i class="fas fa-arrow-up"></i>
     
                 </a>
             <% }else{ %>

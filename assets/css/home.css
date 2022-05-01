@@ -1,3 +1,6 @@
+body {
+  margin: 0px; }
+
 #home-container {
   display: flex;
   width: 70%;
@@ -46,8 +49,12 @@
   #home-container #users {
     position: fixed;
     top: 55px;
-    right: 55px; }
+    left: 55px; }
     #home-container #users #user-friends {
       margin-top: 15px;
       border-left: 2px solid lightgray;
       padding: 10px; }
+  #home-container i {
+    font-size: 23px; }
+    #home-container i .toggle-upvote-button {
+      font-size: 20px; }
