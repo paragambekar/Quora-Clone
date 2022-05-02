@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 const passport = require('passport');
+=======
+ const passport = require('passport');
+>>>>>>> e2d323c2790f0f6dabd5b207f94fed81a9b6ea1f
 const googleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const crypto = require('crypto');
 const User = require('../models/user');
@@ -41,4 +45,8 @@ passport.use(new googleStrategy({
 ));
 
 
+<<<<<<< HEAD
 module.exports = passport;
+=======
+module.exports = passport;
+>>>>>>> e2d323c2790f0f6dabd5b207f94fed81a9b6ea1f
