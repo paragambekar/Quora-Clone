@@ -1,0 +1,2 @@
+::1 - - [01/May/2022:17:27:00 +0000] "GET / HTTP/1.1" 200 20013 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36"
+::1 - - [01/May/2022:17:27:05 +0000] "POST /posts/create HTTP/1.1" 200 392 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36"

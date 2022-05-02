@@ -1,4 +1,6 @@
 const express = require('express');
+const env = require('./config/environment');
+const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const app = express();
 const expressLayouts = require('express-ejs-layouts');
@@ -18,23 +20,29 @@ const chatServer = require('http').Server(app);
 const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
 chatServer.listen(5000);
 console.log('chat server is listening on port 5000');
+const path = require('path');
+console.log('Env variables**********',process.env);
 
+if(env.name == 'development'){
+    app.use(sassMiddleware({
 
-app.use(sassMiddleware({
+        src : path.join(__dirname,env.asset_path,'scss'),
+        dest : path.join(__dirname,env.asset_path,'css'),
+        // debug : true,
+        outputStyle : 'extended',
+        prefix : '/css',
+    }));
+}
 
-    src : './assets/scss',
-    dest : './assets/css',
-    // debug : true,
-    outputStyle : 'extended',
-    prefix : '/css',
-}));
 
 
 app.use(express.urlencoded());
 app.use(cookieParser());
 
-app.use(express.static('./assets'));
+app.use(express.static(env.asset_path));
 app.use('/uploads', express.static(__dirname +'/uploads'));
+
+app.use(logger(env.morgan.mode, env.morgan.options));
 
 app.use(expressLayouts);
 // extract style and scripts from sub pages into the layout
@@ -49,7 +57,7 @@ app.set('views','./views');
 app.use(session({
 
     name : 'quora',
-    secret : 'helloworld',
+    secret : env.session_cookie_key,
     saveUninitialized: false,
     resave: false,
     cookie: {
