@@ -41,7 +41,7 @@ const development = {
 
 const production = {
     name : 'production', 
-    asset_path : "./assets",
+    asset_path : "./public/assets",
     session_cookie_key : process.env.QUORA_SESSION_COOKIE_KEY,
     db : 'quora-production',
     smtp : { 
