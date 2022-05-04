@@ -1,8 +1,9 @@
 <link rel="stylesheet" href="<%= assetPath('css/user_profile.css') %>">
 <h1><%= title %></h1>
-
+<img src="<%= user.avatar %>" alt="<%= user.name %>" width="100">
 <h2> <%= profile_user.name %> </h2>
 <h2> <%= profile_user.email %> </h2>
+
 
 <% if(user.id == profile_user.id){ %>
 
@@ -17,6 +18,7 @@
 
 <% }else{ %> 
 
-    
+    <p><%= profile_user.name %></p>
+    <p><%= profile_user.email %></p>
 
 <% } %> 

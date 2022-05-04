@@ -30,7 +30,7 @@ if(env.name == 'development'){
 
         src : path.join(__dirname,env.asset_path,'scss'),
         dest : path.join(__dirname,env.asset_path,'css'),
-        // debug : true,
+        debug : true,
         outputStyle : 'extended',
         prefix : '/css',
     }));
